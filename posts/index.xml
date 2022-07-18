@@ -1,8 +1,22 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>所有文章 - Yiou&#39;s blog - Learn Something</title>
-    <link>https://fixit.lruihao.cn/posts/</link>
+    <link>https://lyizhou.github.io/posts/</link>
     <description>所有文章 | Yiou&#39;s blog - Learn Something</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1024@lruihao.cn (Lruihao)</managingEditor>
-      <webMaster>1024@lruihao.cn (Lruihao)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://fixit.lruihao.cn/posts/" rel="self" type="application/rss+xml" /></channel>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liuyizh@foxmail.com (之航)</managingEditor>
+      <webMaster>liuyizh@foxmail.com (之航)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 10 Jul 2022 00:01:26 &#43;0800</lastBuildDate><atom:link href="https://lyizhou.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+  <title>密度泛函理论</title>
+  <link>https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/</link>
+  <pubDate>Sun, 10 Jul 2022 00:01:26 &#43;0800</pubDate>
+  <author>之航</author>
+  <guid>https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/</guid>
+  <description><![CDATA[第一性原理 仅包含假设与猜想,不可从其他已有的定理或是经验定理推导, 演绎得到的结论 材料学中第一性原理的两大分支 密度泛函理论 (Density Functional Theory, DFT) 分子动力学 (Molecule]]></description>
+</item><item>
+  <title>密度泛函理论</title>
+  <link>https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/</link>
+  <pubDate>Sun, 10 Jul 2022 00:01:26 &#43;0800</pubDate>
+  <author>之航</author>
+  <guid>https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/</guid>
+  <description><![CDATA[第一性原理 仅包含假设与猜想,不可从其他已有的定理或是经验定理推导, 演绎得到的结论 材料学中第一性原理的两大分支 密度泛函理论 (Density Functional Theory, DFT) 分子动力学 (Molecule]]></description>
+</item></channel>
 </rss>

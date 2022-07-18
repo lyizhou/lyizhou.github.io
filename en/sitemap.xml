@@ -2,30 +2,30 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>https://fixit.lruihao.cn/en/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+      <loc>https://lyizhou.github.io/en/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
             rel="alternate"
             hreflang="zh-cn"
-            href="https://fixit.lruihao.cn/categories/"
+            href="https://lyizhou.github.io/categories/"
             /><xhtml:link
           rel="alternate"
           hreflang="en"
-          href="https://fixit.lruihao.cn/en/categories/"
+          href="https://lyizhou.github.io/en/categories/"
           /></url><url>
-      <loc>https://fixit.lruihao.cn/en/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+      <loc>https://lyizhou.github.io/en/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
             rel="alternate"
             hreflang="zh-cn"
-            href="https://fixit.lruihao.cn/tags/"
+            href="https://lyizhou.github.io/tags/"
             /><xhtml:link
           rel="alternate"
           hreflang="en"
-          href="https://fixit.lruihao.cn/en/tags/"
+          href="https://lyizhou.github.io/en/tags/"
           /></url><url>
-      <loc>https://fixit.lruihao.cn/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+      <loc>https://lyizhou.github.io/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
             rel="alternate"
             hreflang="zh-cn"
-            href="https://fixit.lruihao.cn/"
+            href="https://lyizhou.github.io/"
             /><xhtml:link
           rel="alternate"
           hreflang="en"
-          href="https://fixit.lruihao.cn/en/"
+          href="https://lyizhou.github.io/en/"
           /></url></urlset>

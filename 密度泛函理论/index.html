@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>密度泛函理论 - Yiou&#39;s blog - Learn Something</title><meta name="author" content="之航">
+<meta name="author-link" content="https://lyizhou.github.io/">
+<meta name="description" content="在 FixIt 中设置 PWA 的指南。" /><meta name="keywords" content='DFT' /><meta itemprop="name" content="密度泛函理论">
+<meta itemprop="description" content="在 FixIt 中设置 PWA 的指南。"><meta itemprop="datePublished" content="2022-07-10T00:01:26+08:00" />
+<meta itemprop="dateModified" content="2022-07-18T23:00:14+08:00" />
+<meta itemprop="wordCount" content="5887"><meta itemprop="image" content="https://lyizhou.github.io/logo.png"/>
+<meta itemprop="keywords" content="DFT," /><meta property="og:title" content="密度泛函理论" />
+<meta property="og:description" content="在 FixIt 中设置 PWA 的指南。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" /><meta property="og:image" content="https://lyizhou.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-10T00:01:26+08:00" />
+<meta property="article:modified_time" content="2022-07-18T23:00:14+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lyizhou.github.io/logo.png"/>
+
+<meta name="twitter:title" content="密度泛函理论"/>
+<meta name="twitter:description" content="在 FixIt 中设置 PWA 的指南。"/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "密度泛函理论",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/lyizhou.github.io\/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA\/"
+    },"image": ["https:\/\/lyizhou.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "DFT","wordcount":  5887 ,
+    "url": "https:\/\/lyizhou.github.io\/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA\/","datePublished": "2022-07-10T00:01:26+08:00","dateModified": "2022-07-18T23:00:14+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": "https:\/\/lyizhou.github.io\/images\/avatar.png"},"author": {
+        "@type": "Person",
+        "name": "之航"
+      },"description": "在 FixIt 中设置 PWA 的指南。"
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper" github-corner="right">
+    <div class="header-title">
+      <a href="/" title="Yiou&#39;s blog - Learn Something"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/fixit.svg"
+    data-srcset="/images/fixit.svg, /images/fixit.svg 1.5x, /images/fixit.svg 2x"
+    data-sizes="auto"
+    alt="Yiou&#39;s blog - Learn Something"
+    title="Yiou&#39;s blog - Learn Something" /><span class="header-title-text">FixIt</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class='fa-solid fa-archive fa-fw fa-sm'></i> 所有文章</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class='fa-solid fa-th fa-fw fa-sm'></i> 分类</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class='fa-solid fa-tags fa-fw fa-sm'></i> 标签</a></li><li
+              class="menu-item active"
+              has-children
+            >
+              <a
+                class="menu-link"
+                href="/categories/documentation/"
+                title="主题文档"
+                
+              ><i class='fa-solid fa-book fa-fw fa-sm'></i> 文档</a><i class="dropdown-icon fa-solid fa-chevron-down"></i>
+                <ul class="sub-menu">
+                  <li
+                      class="menu-item active"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/"
+                        title="在 FixIt 中设置 PWA 的指南。"
+                        
+                      ><i class='fa-brands fa-readme fa-fw fa-sm'></i> 密度泛函理论</a>
+                    </li></ul></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/friends/"
+                title="友情链接"
+                
+              ><i class='fa-solid fa-users fa-fw fa-sm'></i> 友链</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class='fa-solid fa-info-circle fa-fw fa-sm'></i> 关于</a></li><li
+              class="menu-item d-none-desktop text-center"
+              
+            >
+              <a
+                class="menu-link"
+                href="https://github.com/Lruihao/FixIt"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fa-brands fa-github fa-fw'></i> </a></li><li class="menu-item delimiter"></li><li class="menu-item language">
+            <span title="选择语言">简体中文<i class="dropdown-icon fa-solid fa-chevron-down"></i>
+            </span>
+            <ul class="sub-menu"><li class="menu-item">没有更多翻译</li></ul>
+          </li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Yiou&#39;s blog - Learn Something"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/fixit.svg"
+    data-srcset="/images/fixit.svg, /images/fixit.svg 1.5x, /images/fixit.svg 2x"
+    data-sizes="auto"
+    alt="/images/fixit.svg"
+    title="/images/fixit.svg" /><span class="header-title-text">FixIt</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class='fa-solid fa-archive fa-fw fa-sm'></i> 所有文章</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class='fa-solid fa-th fa-fw fa-sm'></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class='fa-solid fa-tags fa-fw fa-sm'></i> 标签</a></li><li
+              class="menu-item active"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/categories/documentation/"
+                    title="主题文档"
+                    
+                  ><i class='fa-solid fa-book fa-fw fa-sm'></i> 文档</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                      class="menu-item active"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/"
+                        title="在 FixIt 中设置 PWA 的指南。"
+                        
+                      ><i class='fa-brands fa-readme fa-fw fa-sm'></i> 密度泛函理论</a>
+                    </li></ul></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/friends/"
+                title="友情链接"
+                
+              ><i class='fa-solid fa-users fa-fw fa-sm'></i> 友链</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class='fa-solid fa-info-circle fa-fw fa-sm'></i> 关于</a></li><li
+              class="menu-item d-none-desktop text-center"
+            ><a
+                class="menu-link"
+                href="https://github.com/Lruihao/FixIt"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fa-brands fa-github fa-fw'></i> </a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw"></i>
+        </li><li class="menu-item language">
+            <span title="选择语言">简体中文<i class="dropdown-icon fa-solid fa-chevron-down"></i>
+            </span>
+            <select class="language-select" onchange="location = this.value;"><option disabled>没有更多翻译</option></select>
+          </li></ul>
+    </nav>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录 <i class="toc-icon fa-solid fa-angle-down fa-fw"></i></h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <a
+  href="https://hugodoit.com/zh-cn/pwa-support/"
+  
+    title="转载 -&gt; https://hugodoit.com/zh-cn/pwa-support/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+    class="icon-repost"
+  
+  
+><i class="fa-solid fa-share fa-fw"></i>
+    </a><span>密度泛函理论</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://lyizhou.github.io/"
+  
+    title="作者"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer author"
+  
+  
+    class="author"
+  
+  
+><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="https://gravatar.loli.net/avatar/538131cd2a0820dd1371bf579ae3fc1f?s=32&amp;d=mp"
+    data-srcset="https://gravatar.loli.net/avatar/538131cd2a0820dd1371bf579ae3fc1f?s=32&amp;d=mp, https://gravatar.loli.net/avatar/538131cd2a0820dd1371bf579ae3fc1f?s=32&amp;d=mp 1.5x, https://gravatar.loli.net/avatar/538131cd2a0820dd1371bf579ae3fc1f?s=32&amp;d=mp 2x"
+    data-sizes="auto"
+    alt="之航"
+    title="之航" />&nbsp;之航</a></span>
+          <span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;计算理论知识</a></span></div>
+      <div class="post-meta-line"><span title=2022-07-10&#32;00:01:26>
+            <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-07-10" >2022-07-10</time>
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 5887 字&nbsp;
+        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 12 分钟&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="密度泛函理论">
+              <i class="fa-regular fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+            </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一性原理">第一性原理</a></li>
+    <li><a href="#第一性原理的发展">第一性原理的发展</a></li>
+    <li><a href="#电子交换能与关联能">电子交换能与关联能</a></li>
+    <li><a href="#几种泛函">几种泛函</a></li>
+    <li><a href="#dft矫正">DFT矫正</a>
+      <ul>
+        <li><a href="#dftu">DFT+U</a></li>
+        <li><a href="#dft-d">DFT-D</a></li>
+      </ul>
+    </li>
+    <li><a href="#计算应该给出的参数">计算应该给出的参数</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav></div>
+      </div><div
+      class="content"
+      id="content"
+      
+      
+    ><center>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled.png"
+    title="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled.png" /></p>
+</center>
+<h2 id="第一性原理">第一性原理</h2>
+<blockquote>
+<p>仅包含假设与猜想,不可从其他已有的定理或是经验定理推导, 演绎得到的结论</p>
+</blockquote>
+<p>材料学中第一性原理的两大分支</p>
+<ul>
+<li>密度泛函理论 (Density Functional Theory, DFT)</li>
+<li>分子动力学 (Molecule Dynamics, MD)</li>
+</ul>
+<p>量子力学理论框架的五个假设<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
+<ol>
+<li>微观体系的运动状态由相应的归一化波函数描述;</li>
+<li>微观体系的运动状态波函数随时间变化的规律准从薛定谔方程的解;</li>
+<li>任何可测量力学量由相应的厄米算符表示;</li>
+<li>力学算符之间存在着对易关系, 称为量子条件; 坐标算符的三个直角坐标系分量与动量算符的三个直角坐标系分量之间的对应关系称为基本量子条件; 力学算符由其相应的量子条件决定;</li>
+<li>全同粒子体系的的波函数对于任一对交换粒子而言具有对称性: 玻色子的波函数具有交换对称性, 费米子的波函数具有交换反对称性.</li>
+</ol>
+<hr>
+<h2 id="第一性原理的发展">第一性原理的发展</h2>
+<p>波恩-奥本海默绝热近似 (Born-Oppenheimer approximation)：
+原子核的惯性质量远大于电子, 因此在动量守恒的前提下同等时间内的原子核的速度变化远远小于电子, 故电子的运动问题可以以原子核坐标为参考系.</p>
+<p>哈特里-福克自洽场近似 (Hatree-Fock’ self consistant field method)：
+具有周期性结构的晶体中的不同晶胞同一位置上的原子统一能态的电子波函数仅有相位上的差别, 而这种相位差别在多体问题中可以忽略, 这样某能态电子多体问题的原薛定谔方程的解可以简化为单电子波函数的乘积.</p>
+<p>科恩-沈吕九方程 (Kohn-sham equation)：
+材料中的能量分为原子核动能, 原子核之间的相互作用能, 电子动能, 电子相互作用能, 电子-原子核相互作用能这五个部分. 此方程中体系的哈密顿算子仅包含原子周期性势函数, 电子动能算符和由于上述近似所带来的偏差-相互交换能和相互关联能 (exchange &amp; correlation energy)
+$$
+[-\frac{1}{2}\nabla^2+V(r)+\mu_{xc}(r)]\psi^k_i=\varepsilon^k_i \psi^k_i
+$$</p>
+<ul>
+<li>第一项为非相对论近似下的电子动能算子, 第二项为势函数, 第三项为电子相互交换能与相互关联能, 为密度函数, 为能量本征值。</li>
+<li>将传统薛定谔方程的解-波函数改写为电子的密度函数(density function), 减少了多电子体系问题的自由度,以及求解薛定谔方程的计算量. 此外根据泡利不相容原理(Pauli exclusion principle), 电子作为费米子完全相同的能态上不能容纳2个完全相同的电子, 这为求解多电子体系提供了泛函方法的先决条件.</li>
+<li>在求解科恩-沈吕九方程时基态能态一定拥有所可能解的最小能级(能量本征值), 可以通过泛函求极值的方法求解出这一能态. 有了基态, 能量比基态稍高便是第一电子激发态, 进而逐步求解出整个体系的能态. 有了能态之后就有了对应的波函数, 便可原则上求得任何体系的力学量.</li>
+</ul>
+<p>霍恩贝格-科恩定理 (Hohenberg-Kohn):</p>
+<blockquote>
+<p>科恩-沈吕九方程的理论基石</p>
+</blockquote>
+<ul>
+<li>不计自旋的全同费米子系统的基态是粒子数密度的唯一泛函;</li>
+<li>能量泛函在粒子数不变条件下在正确的粒子密度函数中达到极小值, 此数值等于系统基态能量;</li>
+<li>粒子的密度函数确定之后, 直接决定基态所有的物理性质: 能量, 波函数以及所有力学量算符的期待值;</li>
+<li>简言之, 一旦知道固体中的电子密度函数, 就等价于知道了能量泛函的极小值, 并且这个极小值就是体系绝对零度下基态的能量.</li>
+</ul>
+<p>体系的哈密顿算符可以写为$ H=T_e+V_{e-e}+V_{ext}+V_{N-N} $, 其中, $ V_{e-e}, V_{N-N} $分别表示为电子与电子的相互作用, 原子核与原子核的相互作用; $ T_e $为电子动能; $ V_{ext} $表示外场的作用, 原子核与电子的相互作用也包含在此列, 若体系无外界作用力, 则$ V_{ext} = V_{N-e} $.</p>
+<p>因此, 一旦给出了所有相互作用力的势函数$ V(r)=V_{e-e}+V_{ext}+V_{N-N} $, 原则上就可以求得电子密度函数$ \rho(r) $; 一旦得到了体系密度函数, 进而就可以求得能量关于$\rho(r)$的泛函 :
+$$
+E[\rho]=F[\rho]+E_{ext}[\rho]+E_{N-N}
+$$
+其中$F[\rho]$为力场无关的泛函, 包括电子动能和电子间的相互作用能 :
+$$
+F[\rho]=T[\rho]+E_{e-e}[\rho]=T[\rho]+\frac{1}{2} \iint \mathrm{d}r \mathrm{d}{r}&rsquo; \frac{\rho(r) \rho({r}&rsquo;)}{\left | r-{r}&rsquo; \right |}+E_{xc}[\rho]
+$$
+式中第一项为电子动能, 第二项表示电子间的库伦相互作用, 第三项$E_{xc}[\rho]$为相互交换能(exchange)和相互关联能(correlation),  xc energy.
+$E_{ext}[\rho]$表示外场的作用 :
+$$
+E_{ext}[\rho]=\int \mathrm{d}rV_{ext}(r)\rho(r)
+$$
+$E_{N-N}$表示原子核之间的排斥能 :
+$$
+E_{N-N}=\sum_{i&lt;j}\frac{Z_iZ_j}{\left|R_i - R_j\right|}
+$$
+其中$Z_i$表示考虑电子核屏蔽效应之后的有效电荷, $R_i$为原子坐标[i].</p>
+<p>还需要考虑的三个问题:</p>
+<ul>
+<li>如何确定电子数密度$\rho(r)$</li>
+<li>如何确定动能泛函$T[\rho]$</li>
+<li>如何确定交换关联能泛函$E_{xc}[\rho]$</li>
+</ul>
+<p>对于前两个问题的解决</p>
+<ul>
+<li>N个单电子的波函数可以直接构成密度函数<br>
+$$
+\rho(r)=\sum_{i=1}^{N}\left|    \varphi_i(r)\right |^2
+$$</li>
+<li>动能泛函可以用一个已知的无相互作用的电子系统的动能泛函来替代, 非相对论近似下半经典非周期性近似 :
+$$
+T[\rho]=\sum_{i=1}^{N} \int \mathrm{d}r \ \varphi^*_i(\frac{1}{2}\nabla^2)(r)\varphi_i(r)
+$$</li>
+<li>里兹(Ritz)变分法
+哈密顿量的本征值按照从小到大的顺序排列为 : $E_0, E_1, E_2, E_3, E_4\dots$, 对应的本征函数为$\varphi_1,\varphi_2,\varphi_3,\varphi_4\dots$, 因为任意体系的波函数满足$\varphi=\sum c_n\varphi_n$, 因而
+$$
+H=\frac{\int\varphi^ *H\varphi\mathrm{d}\tau}{\int\varphi^ * \varphi\mathrm{d}\tau}\ge E_0
+$$
+等号当且仅当$\varphi=\varphi_0$时成立, 若将$\varphi$归一化, 则有$\int \varphi^*H\varphi \mathrm{d}\tau \ge E_0$, 推论 : 在任意一个与$\varphi_0$正交的波函数所描述的状态中, 体系能量的平均值$H\ge E_1$, 等号在$\varphi=\varphi_1$时成立。</li>
+</ul>
+<hr>
+<h2 id="电子交换能与关联能">电子交换能与关联能</h2>
+<p>电子交换能（exchange energy）:
+电子是费米子，量子力学中对与全同费米子体系的波函数的一个要求是：交换两个费米子的位置，新波函数与原波函数的符号相反，这一性质被称为费米子的交换反对称性（玻色子具有交换对称性）。<strong>数学上</strong>为了满足这个条件，数学上，多电子体系波函数/密度函数采用slater行列式表达。该行列式具有天然的反对称性，经过这样处理后，单电子的哈密顿量比原来多了一项，此项具有能量的量纲，因此被命名为交换能。<strong>物理上</strong>具有多种解释，多电子体系中不同电子的电子云有时存在交叠，交叠区域表示“不同”的电子在此区域均有存在的可能性，然后“彼”与“此”电子在物理上应该是全同的，而交换能就是这种全同费米子的能量属性，也可以理解为交叠区域“不同”电子交换行为产生的能量。</p>
+<center>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/10-6.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/10-6.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/10-6.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/10-6.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/10-6.png"
+    title="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/10-6.png" /></p>
+</center>
+<p>电子关联能（correlation energy) :
+电子关联能主要反映电子之间的相互作用产生的能量，具体来说描述的是电子运动由于其它电子存在收到的影响，这种影响的量化体现就是关联能。关联能数学上一般定义为系统的真实基态能量同哈特里-福克近似下计算出的基态能量之差。</p>
+<p>电子交换关联项的含义：
+电子交换关联项由于源自“误差项”的本质，目前尚没有统一的完备理论阐述，若实际计算理论造成的偏差若可以在可接受的范围内，仍然具有实际意义。范德华泛函的出现典型体现了交换关联项的“误差项”本质。</p>
+<hr>
+<h2 id="几种泛函">几种泛函</h2>
+<p>局域密度近似（Local Density Approximation，LDA）：</p>
+<p>局域密度近似的表达式写为：</p>
+<p>$$
+{E_{xc}^{LDA}[\rho]} = {E_{c}^{LDA}[\rho]} + {E_{x}^{LDA}[\rho]} = \int \mathrm{d}r \ f[\rho(r)]
+$$</p>
+<p>对于$E^{LDA}_x[\rho]$，通常使用同质/均匀电子云近似，近似等效为具有同样电子密度的均匀电子云产生的交换能。而均匀电子云交换能可以通过狄拉克泛函精确求解测：</p>
+<p>$$
+E^{LDA}_x[\rho]=-\frac{3}{4}(\frac{3}{\pi})^{\frac{1}{3}}\int\mathrm{d}r \ \rho(r)^{\frac{4}{3}}
+$$</p>
+<p>对于关联能项,则存在着高密度 :</p>
+<p>$$
+E^{LDA}_{c}[\rho]=A\ \ln(r_s)+B+r_s(C\ln(r_s)+D)
+$$</p>
+<p>与低密度 :</p>
+<p>$$
+E^{LDA}_c[\rho]= \frac{1}{2}(\frac{g_0}{r_s}+\frac{g_1}{r^\frac{3}{2}_s}+\dots)
+$$</p>
+<p>式中A,B,C,D,g均为经验参数,$r_s$为魏格纳-塞茨半径.  总的来说,LDA泛函的固有特点是$E^{LDA}_x[{\rho}]$与实际值偏低而$E^{LDA}_c[\rho]$偏高, 两者在一些物理问题如结构几何参数, 弹性模量中可以相互抵消, 因而计算相对准确, 然而结合能计算偏高, 反应活化能偏低。</p>
+<p>广义梯度近似（Generalized Gradient Approx，GGA）:</p>
+<p>LDA在电子密度随空间变化较快的体系中表现不佳, 通过把电子密度的一阶梯度考虑进来. 广义梯度近似就是在这种思想下的典型进步,通用表达是可以写作:</p>
+<p>$$
+E^{GGA}_{xc}=\int \mathrm{d}r \ f[\rho(r),\nabla\rho(r)]
+$$</p>
+<p>绝大多数GGA可以看作是LDA的修正,在原有的泛函基础之上加入了密度函数的梯度, 而密度函数的梯度可以理解为电子动能, 或者是电子密度随空间的改变。</p>
+<p>常见的GGA泛函有</p>
+<ul>
+<li>Becke-Lee-Yang-Parr (BLYP)</li>
+<li>Perdew-Berke-Ernzerhof (PBE)</li>
+<li>Hamperecht-Tozer-Cohen-Handy (HTCH)</li>
+</ul>
+<p>它们一般可以预测更准确的体系能量, 结合能, 活化能, 但是通常给出偏低的键能和偏大的晶格参数。</p>
+<p>含动能密度的广义梯度近似（meta-GGA，MGGA）:</p>
+<p>进一步将密度函数的二阶导数考虑进去, 这就是meta-GGA的方法, 相应的表达式为:</p>
+<p>$$
+E^{MGGA}_{xc}[\rho]=\int \mathrm{d}r\ f[\rho(r), \nabla \rho(r), \nabla^2\rho(r)]
+$$</p>
+<p>写作 :</p>
+<p>$$
+E^{MGGA}_{xc}[\rho]=\int \mathrm{d}r\ f[\rho(r), \nabla \rho(r), T(r)]
+$$</p>
+<p>meta-GGA在过渡金属, 有机金属, 无机金属体系以及含时密度泛函理论中具有广泛的应用。</p>
+<p>杂化泛函（Hybrid Functional）:</p>
+<p>将不同的泛函结合使用, 以及将一些实验测量因素如哈特利-福克能量也包含在泛函中 :</p>
+<p>$$
+E_{xc}=aE^{HF}_x+(1-a)E^{DFT}_x+E^{DFT}_c
+$$</p>
+<p>式中a仅仅是一个参数, 表达不同泛函在杂化泛函中的比重, 因为考虑了实验值计算十分复杂。</p>
+<hr>
+<h2 id="dft矫正">DFT矫正</h2>
+<h3 id="dftu">DFT+U</h3>
+<p>为什么要用DFT+U：
+对一些强关联体系，要考虑电子之间的库伦排斥，就要Hubbard+U ,  由于对电子之间的相互作用考虑的不充分，LDA和GGA对一些电子高度局域并且强关联体系并不是很适用例如，金属氧化物，稀土元素及其化合物，故而Anisimov等人对其进行修正，在LDA或者GGA的能量泛函中加入Hubbard参数U，即DFT+U方法。U就是自旋相反电子的强关联排斥能，在Hubbard模型一级近似下，U考虑了同一个原子上自旋相反的局域电子之间的库伦排斥，从而导致能带的“重整化”。 <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<p>$$
+E_{DFT+U}=E_{DFT}+E_{U}
+$$</p>
+<p>其中的一部分电子用DFT算法(如LDA, GGA)可以准确的描述; 另外的d, f轨道电子通过引入Hubbard项得到正确的描述(U值考虑了同一个原子自旋相反的局域电子之间的库伦)</p>
+<hr>
+<p>VASP中DFT+U参数设置：
+VASP计算中，采用LDA+U模型,  +U的体系从优化结构到计算性质都加<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">U值由以下三个参数控制</span><span class="err">，</span> <span class="n">LDAUL</span><span class="err">，</span> <span class="n">LDAUU</span><span class="err">，</span> <span class="n">LDAUJ</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUL</span><span class="err">——</span><span class="n">对具体的p</span><span class="p">-/</span><span class="n">d</span><span class="p">-/</span><span class="n">f</span><span class="p">-</span><span class="n">轨道加U</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUU</span><span class="err">——</span><span class="n">电子库伦相互作用项</span><span class="p">(</span> <span class="nb">on-site</span> <span class="n">Coulomb</span> <span class="n">interaction</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUJ</span><span class="err">——</span><span class="n">电子交换相互作用项</span><span class="p">(</span> <span class="nb">on-site</span> <span class="n">exchange</span> <span class="n">interaction</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="nb">U-J</span><span class="err">——</span><span class="n">有效U值</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>具体参数的定义如下（假如体系中有两类原子La 和S，S不加U，La的f轨道修正（U-J））</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">LDAU</span><span class="p">=</span><span class="n">T</span>          <span class="c">#(控制计算中是否考虑在位库伦校正相)</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUTYPE</span><span class="p">=</span> <span class="n">2</span>     <span class="c">#(+U的类型, 1|2|4; 2-默认值; U-J具有实际物理意义)</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUL</span><span class="p">=</span> <span class="p">-</span><span class="n">1</span> <span class="n">3</span>     <span class="c">#(控制具体的原子轨道上加U; -1, 不加U; 1-p轨道; 2-d轨道; 3-f轨道)</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUU</span><span class="p">=</span> <span class="n">0</span> <span class="n">5</span><span class="p">.</span><span class="n">5</span>    <span class="c">#(U值由LDAUU-LDAUJ确定）</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUJ</span><span class="p">=</span> <span class="n">0</span> <span class="n">0</span><span class="p">.</span><span class="n">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">LMAXMIX</span><span class="p">=</span> <span class="n">6</span>      <span class="c">#(对+U体系, 设置线性混合参数, 默认为2, d轨道设为4, f轨道设为6)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">比如POSCAR中是Co</span> <span class="n">O</span><span class="p">,</span><span class="n">那么VASP参数就可以用以下参数</span><span class="err">，</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAU</span> <span class="p">=</span> <span class="p">.</span><span class="n">TRUE</span><span class="p">.</span>   <span class="c">#打开U</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUTYPE</span> <span class="p">=</span> <span class="n">2</span>    <span class="c">#加U类型，默认是2</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUL</span> <span class="p">=</span> <span class="n">2</span> <span class="p">-</span><span class="n">1</span>    <span class="c">#对哪些轨道加U，1表示p轨道，2表示d轨道，3表示f轨道，-1表示不加U，默认是2）</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUU</span> <span class="p">=</span> <span class="n">3</span><span class="p">.</span><span class="n">0</span> <span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="c">#U值</span>
+</span></span><span class="line"><span class="cl"><span class="n">LDAUJ</span> <span class="p">=</span> <span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="c">#J值</span>
+</span></span><span class="line"><span class="cl"><span class="n">LMAXMIX</span><span class="p">=</span><span class="n">4</span>       <span class="c">#Co是d轨道，设为4，f轨道设为6 </span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong><font color=red>
+注意事项
+</font></strong></p>
+<ol>
+<li>必须为每一类原子指定一个U值, 其顺序与结构文件中的POSCAR中元素一致;</li>
+<li>同一种元素在不同的体系中U值不同;</li>
+<li>U在所有电子中都存在,  不管自选是否相同, J只存在于自旋相同的电子上; 当LADUTYPE=2时, U-J的差值才有意义, 即有效的U参数.</li>
+</ol>
+<p>通过线性响应法来选取合适的U值：
+通过给单个原子施加一个外加的有效库伦, 交换相互作用项(LDAUU, LDAUJ), 导致该原子的d/f轨道电荷密度(占据数)重新分配,  计算该原子d/ f轨道电荷占据数对外加的有效库伦, 交换相关作用的一阶偏导(线性响应系数)的大小, 从而得到体系中该原子U值的大小。</p>
+<p>线性响应系数为 :</p>
+<p>$$
+\chi_{SCF/NSCF}= \frac{\partial N^{SCF/NSCF}}{\partial V}
+$$</p>
+<p>其中,  $\partial N^{SCF/NSCF}$为 Self consistent response (自洽) 和 Non-self consistent response (非自洽)计算加U原子d/f轨道电荷占据数的变化量, $\partial V$为外加的有效库伦, 交换相关作用的变化量。</p>
+<p>U值为 :</p>
+<p>$$
+U= {\chi_{SCF}}^{-1}-{\chi_{NSCF}}^{-1} \approx (\frac{\partial N^{SCF}}{\partial V})-(\frac{\partial N^{NSCF}}{\partial V})
+$$</p>
+<p>其中$\chi_{SCF}$和$\chi _{NSCF}$分别为自洽和非自洽计算得到的线性响应系数</p>
+<hr>
+<p>线性相应的计算步骤<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup></p>
+<ol>
+<li>非自洽计算：施加一个外加的有效库伦、交换相互作用项（LDAUU、 LDAUJ），计算非自洽计算得到的加U原子d/f轨道电荷占据数；</li>
+<li>自洽计算：施加一个外加的有效库伦、交换相互作用项（LDAUU、 LDAUJ），计算自洽计算得到的加U原子d/f轨道电荷占据数；</li>
+<li>改变不同的LDAUU (= LDAUJ)值，得到非自洽和自洽计算的线性响应系数，代入公式求得U值。</li>
+</ol>
+<hr>
+<h3 id="dft-d">DFT-D</h3>
+<p>为什么要用DFT-D：
+很多传统的交换-相关泛函，诸如B3LYP，由于相关势的长程行为不对，完全不能描述色散作用，而诸如常见的PBE、PW91对色散作用描述也极差。因此它们用于研究色散作用主导的问题结果差得一塌糊涂，比如物理吸附、长链烷烃之类的大分子构象、弱极性分子团簇等等。解决这些泛函对色散作用描述能力很差的最有效的方法就是引入经验的色散校正项<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+<p>DFT-D3的两种形式：
+DFT-D3实际上有两个版本，差异在于阻尼函数形式。阻尼函数用来调节色散校正在近程、中程距离时的行为，以避免double-counting问题（传统DFT泛函能够较好描述近距离的相关作用，如果近距离时校正能还较大的话就导致重复了）。DFT-D3原文当中用的是零阻尼(zero-damping)形式，这也是通常说的DFT-D3。而后来在JCC,32,1456(2011)中通过比较，发现使用物理意义更明确的Becke-Johnson阻尼(BJ-damping)可以让结果稍微更好点，对分子内色散作用的描述优势更显著些，这种校正形式通常被称为DFT-D3(BJ)。不过多数文章中在使用DFT-D3校正时并不做显著区分，表面写的是DFT-D3但实际上可能用的是DFT-D3(BJ)。</p>
+<p>零阻尼的DFT-D3矫正能为：</p>
+<p>$$
+E_{disp}^{DFT-D3}=-\frac{1}{2} \sum_{A\ne B} \sum_{n=6,8}s_n \frac{C_n^{AB}}{R_AB^n}f_{admp,n}(R_{AB})
+$$</p>
+<p>其中$R_{AB}$代表AB原子间的距离，上标n就代表了距离的n次方。C是原子间色散校正系数，依据一定规则进行计算。$s_n$是刻度因子。零阻尼函数f的表达式为：</p>
+<p>$$
+f_{damp,n}(R_{AB})=\frac{1}{1+6[R_{AB}/(s_{r,n}R_0^{AB})]^{-\gamma}}
+$$</p>
+<p>基于BJ阻尼的DFT-D矫正能形式为：</p>
+<p>$$
+E_{disp}^{DFT-D3(BJ)}=-\frac{1}{2} \sum_{A\ne B} \sum_{n=6,8}s_n \frac{C_n^{AB}}{R_AB^n+f(R_{AB}^0)^n}\ f(R_{AB}^0)=a_1 R_{AB}^0+a_2
+$$</p>
+<p>DFT-D3程序在VASP中的使用：</p>
+<p>$$
+E_{DFT-disp}=E_{KS-DFT}+E_{disp}
+$$</p>
+<p>使用IVDW方法来计算$E_{disp}$矫正项</p>
+<p>vdw, 几何结构优化、自洽计算、能带等计算中都要在INCAR中加上vdw相关参数<a
+  href="https://www.notion.so/df1e7470792842df858f0401c7422302"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>[6]<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span><span class="m">0</span>      <span class="c1">#no correction</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span>1<span class="p">|</span><span class="m">10</span>   <span class="c1">#DFT-D2 method of Grimme (available as of VASP.5.2.11)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span><span class="m">11</span>     <span class="c1">#zero damping DFT-D3 method of Grimme (available as of VASP.5.3.4)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span><span class="m">12</span>     <span class="c1">#DFT-D3 method with Becke-Jonson damping (available as of VASP.5.3.4)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span><span class="m">13</span>     <span class="c1">#DFT-D4 method (available as of VASP.6.2 as external package).</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span>2<span class="p">|</span><span class="m">20</span>   <span class="c1">#Tkatchenko-Scheffler method (available as of VASP.5.3.3)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span><span class="m">21</span>     <span class="c1">#Tkatchenko-Scheffler method with iterative Hirshfeld partitioning (available as of VASP.5.3.5)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span><span class="m">202</span>    <span class="c1">#Many-body dispersion energy method (MBD@rSC) (available as of VASP.5.4.1)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span><span class="o">=</span><span class="m">4</span>      <span class="c1">#dDsC dispersion correction method (available as of VASP.5.4.1)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="计算应该给出的参数">计算应该给出的参数</h2>
+<ol>
+<li>计算理论</li>
+<li>赝势</li>
+<li>泛函</li>
+<li>截断能</li>
+<li>布里渊区K点</li>
+<li>收敛标准</li>
+</ol>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled1.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled1.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled1.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled1.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled1.png"
+    title="文献一" /></p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled2.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled2.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled2.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled2.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/Untitled2.png"
+    title="文献二" /></p>
+<hr>
+<h2 id="reference">Reference</h2>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a
+  href="http://www.cailiaoniu.com/113168.html"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>第一性原理发展简史<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p><a
+  href="https://www.bilibili.com/read/cv13272548"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>VASP计算之DFT+U<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p><a
+  href="https://wap.sciencenet.cn/blog-3352196-1069135.html"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>vasp中DFT+U设置<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p><a
+  href="https://www.bilibili.com/read/cv9649700"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>DFT+U理论及“一步”完成DFT+U多步计算<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p><a
+  href="http://sobereva.com/210"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>DFT-D色散校正的使用 - 思想家公社的门口：量子化学·分子模拟·二次元<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-07-18&#32;23:00:14>更新于 2022-07-18</span>
+      </div>
+      <div class="post-info-license "><span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a
+  href="/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/index.md"
+  
+    title="阅读原始文档"
+  
+  
+  
+  
+    class="link-to-markdown"
+  
+  
+>阅读原始文档</a></span><span><a
+  href="https:/github.com/Lruihao/FixIt/edit/master/exampleSite/content/posts/%e5%af%86%e5%ba%a6%e6%b3%9b%e5%87%bd%e7%90%86%e8%ae%ba/%e5%af%86%e5%ba%a6%e6%b3%9b%e5%87%bd%e7%90%86%e8%ae%ba.md"
+  
+    title="编辑此页"
+  
+  
+  
+  
+    class="link-to-edit"
+  
+  
+>编辑此页</a></span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" data-title="密度泛函理论" data-hashtags="DFT"><i class="fa-brands fa-twitter fa-fw"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" data-hashtag="DFT"><i class="fa-brands fa-facebook-square fa-fw"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" data-title="密度泛函理论"><i class="fa-brands fa-hacker-news fa-fw"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" data-title="密度泛函理论"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" data-title="密度泛函理论" data-ralateuid="xxxx"><i class="fa-brands fa-weibo fa-fw"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/dft/">DFT</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"></div>
+</div>
+<div id="comments"><div id="giscus">
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="Lruihao/FixIt"
+            data-repo-id="R_kgDOGihPtQ"
+            data-category="General"
+            data-category-id="DIC_kwDOGihPtc4CApHX"
+            data-mapping="title"
+            
+            data-theme="preferred_color_scheme"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+            defer
+          ></script>
+          <noscript>
+            Please enable JavaScript to view the comments powered by <a href="https://giscus.app/" rel="external nofollow noopener noreferrer">giscus</a>.
+          </noscript>
+        </div></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreferrer" title="FixIt v0.2.15-RC"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
+            <span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://lyizhou.github.io/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>之航</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中 ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon"></i>&nbsp;<span class="run-times">网站运行中 ...</span></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin fa-fw"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin fa-fw"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets">
+  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+      <i class="fa-solid fa-arrow-up fa-fw"></i>
+    </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+      <i class="fa-solid fa-comment fa-fw"></i>
+    </a>
+  </div><a
+  href="https://github.com/Lruihao/FixIt"
+  
+    title="在 GitHub 上查看源代码"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+    class="github-corner right d-none-mobile"
+  
+  
+><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/katex/katex.min.js" defer></script><script type="text/javascript" src="/lib/katex/auto-render.min.js" defer></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js" defer></script><script type="text/javascript" src="/lib/katex/mhchem.min.js" defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/pangu/pangu.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{"giscus":{"darkTheme":"dark_dimmed","lightTheme":"light"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"enablePangu":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"YKOM6PKLUY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a44c110d3ac360be2c69cd79d34b77a8","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2021-12-18T16:15:22+08:00","watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.0125}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>

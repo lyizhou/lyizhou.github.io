@@ -61,4 +61,4 @@ Disallow: /
 User-agent: ZoominfoBot
 Disallow: /
 
-Sitemap: https://fixit.lruihao.cn/en/sitemap.xml
+Sitemap: https://lyizhou.github.io/en/sitemap.xml

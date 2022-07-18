@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>Theme Documentation - PWA Support - FixIt</title><meta name="author" content="Lruihao">
+<meta name="author-link" content="https://lruihao.cn">
+<meta name="description" content="Guide to setup PWA in FixIt." />
+<meta name="keywords" content="PWA" /><meta itemprop="name" content="Theme Documentation - PWA Support">
+<meta itemprop="description" content="Guide to setup PWA in FixIt."><meta itemprop="datePublished" content="2022-01-26T09:32:56+08:00" />
+<meta itemprop="dateModified" content="2022-05-15T23:07:03+08:00" />
+<meta itemprop="wordCount" content="665"><meta itemprop="image" content="https://fixit.lruihao.cn/en/pwa-support/featured-image.png">
+<meta itemprop="keywords" content="PWA," /><meta property="og:title" content="Theme Documentation - PWA Support" />
+<meta property="og:description" content="Guide to setup PWA in FixIt." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fixit.lruihao.cn/en/pwa-support/" /><meta property="og:image" content="https://fixit.lruihao.cn/en/pwa-support/featured-image.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-01-26T09:32:56+08:00" />
+<meta property="article:modified_time" content="2022-05-15T23:07:03+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fixit.lruihao.cn/en/pwa-support/featured-image.png"/>
+<meta name="twitter:title" content="Theme Documentation - PWA Support"/>
+<meta name="twitter:description" content="Guide to setup PWA in FixIt."/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fixit.lruihao.cn/en/pwa-support/" /><link rel="next" href="https://fixit.lruihao.cn/en/emoji-support/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Theme Documentation - PWA Support",
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/fixit.lruihao.cn\/en\/pwa-support\/"
+    },"image": [{
+              "@type": "ImageObject",
+              "url": "https:\/\/fixit.lruihao.cn\/en\/pwa-support\/featured-image.png",
+              "width":  2048 ,
+              "height":  771 
+            }],"genre": "posts","keywords": "PWA","wordcount":  665 ,
+    "url": "https:\/\/fixit.lruihao.cn\/en\/pwa-support\/","datePublished": "2022-01-26T09:32:56+08:00","dateModified": "2022-05-15T23:07:03+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": "https:\/\/fixit.lruihao.cn\/images\/avatar.png"},"author": {
+        "@type": "Person",
+        "name": "Lruihao"
+      },"description": "Guide to setup PWA in FixIt."
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper" github-corner="right">
+    <div class="header-title">
+      <a href="/en/" title="FixIt"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/fixit.svg"
+    data-srcset="/images/fixit.svg, /images/fixit.svg 1.5x, /images/fixit.svg 2x"
+    data-sizes="auto"
+    alt="FixIt"
+    title="FixIt" /><span class="header-title-text">FixIt</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/en/posts/"
+                
+                
+              ><i class='fas fa-archive fa-fw fa-sm'></i> Posts</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/en/categories/"
+                
+                
+              ><i class='fas fa-th fa-fw fa-sm'></i> Categories</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/en/tags/"
+                
+                
+              ><i class='fas fa-tags fa-fw fa-sm'></i> Tags</a></li><li
+              class="menu-item active"
+              has-children
+            >
+              <a
+                class="menu-link"
+                href="/en/categories/documentation/"
+                title="Theme Documentation"
+                
+              ><i class='fas fa-book fa-fw fa-sm'></i> Docs</a><i class="dropdown-icon fas fa-chevron-down"></i>
+                <ul class="sub-menu">
+                  <li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/theme-documentation-basics/"
+                        title="Discover what the Hugo - FixIt theme is all about and the core-concepts behind it."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> Basics</a>
+                    </li><li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/theme-documentation-content/"
+                        title="Find out how to create and organize your content quickly and intuitively in FixIt theme."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> Content</a>
+                    </li><li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/theme-documentation-built-in-shortcodes/"
+                        title="Hugo provides multiple built-in shortcodes for author convenience and to keep your markdown content clean."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> Built-in Shortcodes</a>
+                    </li><li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/theme-documentation-extended-shortcodes/"
+                        title="FixIt theme provides multiple shortcodes on top of built-in ones in Hugo."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> Extended Shortcodes</a>
+                    </li><li
+                      class="menu-item active"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/pwa-support/"
+                        title="Guide to setup PWA in FixIt."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> PWA Support</a>
+                    </li></ul></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/en/friends/"
+                
+                
+              ><i class='fas fa-users fa-fw fa-sm'></i> Friends</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/en/about/"
+                
+                
+              ><i class='fas fa-info-circle fa-fw fa-sm'></i> About</a></li><li
+              class="menu-item d-none-desktop text-center"
+              
+            >
+              <a
+                class="menu-link"
+                href="https://github.com/Lruihao/FixIt"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> </a></li><li class="menu-item delimiter"></li><li class="menu-item language">
+            <span title="Select Language">English<i class="dropdown-icon fas fa-chevron-down"></i>
+            </span>
+            <ul class="sub-menu"><li class="menu-item">
+                      <a href="/pwa-support/" title="简体中文">简体中文</a>
+                    </li></ul>
+          </li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="Search titles or contents ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+              <i class="fas fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+              <i class="fas fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fas fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/en/" title="FixIt"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/fixit.svg"
+    data-srcset="/images/fixit.svg, /images/fixit.svg 1.5x, /images/fixit.svg 2x"
+    data-sizes="auto"
+    alt="/images/fixit.svg"
+    title="/images/fixit.svg" /><span class="header-title-text">FixIt</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="Search titles or contents ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                <i class="fas fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                <i class="fas fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fas fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              Cancel
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/en/posts/"
+                
+                
+              ><i class='fas fa-archive fa-fw fa-sm'></i> Posts</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/en/categories/"
+                
+                
+              ><i class='fas fa-th fa-fw fa-sm'></i> Categories</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/en/tags/"
+                
+                
+              ><i class='fas fa-tags fa-fw fa-sm'></i> Tags</a></li><li
+              class="menu-item active"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/en/categories/documentation/"
+                    title="Theme Documentation"
+                    
+                  ><i class='fas fa-book fa-fw fa-sm'></i> Docs</a>
+                  <i class="dropdown-icon fas fa-chevron-right"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/theme-documentation-basics/"
+                        title="Discover what the Hugo - FixIt theme is all about and the core-concepts behind it."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> Basics</a>
+                    </li><li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/theme-documentation-content/"
+                        title="Find out how to create and organize your content quickly and intuitively in FixIt theme."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> Content</a>
+                    </li><li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/theme-documentation-built-in-shortcodes/"
+                        title="Hugo provides multiple built-in shortcodes for author convenience and to keep your markdown content clean."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> Built-in Shortcodes</a>
+                    </li><li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/theme-documentation-extended-shortcodes/"
+                        title="FixIt theme provides multiple shortcodes on top of built-in ones in Hugo."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> Extended Shortcodes</a>
+                    </li><li
+                      class="menu-item active"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/en/pwa-support/"
+                        title="Guide to setup PWA in FixIt."
+                        
+                      ><i class='fab fa-readme fa-fw fa-sm'></i> PWA Support</a>
+                    </li></ul></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/en/friends/"
+                
+                
+              ><i class='fas fa-users fa-fw fa-sm'></i> Friends</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/en/about/"
+                
+                
+              ><i class='fas fa-info-circle fa-fw fa-sm'></i> About</a></li><li
+              class="menu-item d-none-desktop text-center"
+            ><a
+                class="menu-link"
+                href="https://github.com/Lruihao/FixIt"
+                title="GitHub"
+                rel="noopener noreffer" target="_blank"
+              ><i class='fab fa-github fa-fw'></i> </a></li><li class="menu-item theme-switch" title="Switch Theme">
+          <i class="fas fa-adjust fa-fw"></i>
+        </li><li class="menu-item language">
+            <span title="Select Language">English<i class="dropdown-icon fas fa-chevron-down"></i>
+            </span>
+            <select class="language-select" onchange="location = this.value;"><option value="/en/pwa-support/" selected disabled>English</option><option value="/pwa-support/">简体中文</option></select>
+          </li></ul>
+    </nav>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">Contents</h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single"><h1 class="single-title animate__animated animate__flipInX">Theme Documentation - PWA Support</h1><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://lruihao.cn"
+  
+    title="Author"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer author"
+  
+  
+  
+    class="author"
+  
+  
+><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="https://www.gravatar.com/avatar/fee47a2f4f2cc71f99a02b0a73ecfee0?s=32&amp;d=mp"
+    data-srcset="https://www.gravatar.com/avatar/fee47a2f4f2cc71f99a02b0a73ecfee0?s=32&amp;d=mp, https://www.gravatar.com/avatar/fee47a2f4f2cc71f99a02b0a73ecfee0?s=32&amp;d=mp 1.5x, https://www.gravatar.com/avatar/fee47a2f4f2cc71f99a02b0a73ecfee0?s=32&amp;d=mp 2x"
+    data-sizes="auto"
+    alt="Lruihao"
+    title="Lruihao" />&nbsp;Lruihao</a></span>
+          <span class="post-category">included in <a href="/en/categories/documentation/"><i class="far fa-folder fa-fw"></i>&nbsp;Documentation</a></span></div>
+      <div class="post-meta-line"><span title=2022-01-26&#32;09:32:56>
+            <i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-26" >2022-01-26</time>
+          </span>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;665 words&nbsp;
+        <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+    </div><div class="featured-image"><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="/en/pwa-support/featured-image.png"
+    data-srcset="/en/pwa-support/featured-image.png, /en/pwa-support/featured-image.png 1.5x, /en/pwa-support/featured-image.png 2x"
+    data-sizes="auto"
+    alt="/en/pwa-support/featured-image.png"
+    title="Guide to setup PWA in FixIt." /></div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>Contents</span>
+          <span><i class="details-icon fas fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-are-pwas">What are PWAs?</a></li>
+    <li><a href="#why-bother">Why bother?</a></li>
+    <li><a href="#setup-in-fixit">How to turn your FixIt site into a PWA?</a>
+      <ul>
+        <li><a href="#site.webmanifest">Configure <code>site.webmanifest</code></a></li>
+        <li><a href="#offline-page">Configure the offline page</a></li>
+        <li><a href="#enable-pwa">Enable the <code>enablePWA</code> option</a></li>
+      </ul>
+    </li>
+    <li><a href="#install-your-pwa">Install your PWA</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>Find out how to turn your FixIt site into a Progressive Web App.</p>
+<h2 id="what-are-pwas">What are PWAs?</h2>
+<p><a
+  href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+><strong>Progressive Web Apps</strong> (PWAs) <i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a>are web apps that use <a
+  href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>service workers<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a>, <a
+  href="https://developer.mozilla.org/en-US/docs/Web/Manifest"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>manifests<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a>, and other web-platform features in combination with <a
+  href="https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>progressive enhancement<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a> to give users an experience on par with native apps.</p>
+<h2 id="why-bother">Why bother?</h2>
+<p>Well, the straight answer to this questions is: &ldquo;You don&rsquo;t need to turn your site into a PWA.&rdquo; A normal website is good enough for all the content you want to share. However, a PWA brings some extra benefits that might be useful.</p>
+<ol>
+<li>Pages will be automatically cached by service workers when the app is installed, which enables a near-instantaneous loading from the second visit.</li>
+<li>Users can always visit cached pages when they are offline.</li>
+</ol>
+<p>These features may be useful for some websites, such as this documentation site. But it does not make much sense to turn a personal blog into a PWA. In the end, it all depends on your choice, and the FixIt theme will provide this feature for you anyway.</p>
+<h2 id="setup-in-fixit">How to turn your FixIt site into a PWA?</h2>
+<h3 id="site.webmanifest">Configure <code>site.webmanifest</code></h3>
+<p>Under the <code>/static/</code> folder, you need to create a file named <code>site.webmanifest</code>. This file provides information about your app and it is required for your app to be installable.</p>
+<p>Here are the key values required.</p>
+<ul>
+<li>
+<p><strong>name</strong> <em>[required]</em></p>
+<p>The name of your web app.</p>
+</li>
+<li>
+<p><strong>short_name</strong> <em>[required]</em></p>
+<p>A shorter name for your web app.</p>
+</li>
+<li>
+<p><strong>start_url</strong> <em>[required]</em></p>
+<p>The start URL of your web app. Please fill in <code>&quot;/&quot;</code> by default.</p>
+</li>
+<li>
+<p><strong>icons</strong> <em>[required]</em></p>
+<p>An array of objects representing image files will be served as application icons. You can reuse the favicon of your site as the icons.</p>
+</li>
+</ul>
+<p>There are other optional values you can set in the manifest file, check out this <a
+  href="https://developer.mozilla.org/en-US/docs/Web/Manifest"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>documentation<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a> for more information.</p>
+<p>Here is a sample <code>site.webmanifest</code> file from this documentation site.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;FixIt Theme Documentation&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;short_name&#34;</span><span class="p">:</span> <span class="s2">&#34;FixIt Docs&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;start_url&#34;</span><span class="p">:</span> <span class="s2">&#34;/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;A Clean, Elegant but Advanced Hugo Theme&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;theme_color&#34;</span><span class="p">:</span> <span class="s2">&#34;#ffffff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;background_color&#34;</span><span class="p">:</span> <span class="s2">&#34;#ffffff&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;display&#34;</span><span class="p">:</span> <span class="s2">&#34;standalone&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;icons&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;src&#34;</span><span class="p">:</span> <span class="s2">&#34;/apple-touch-icon.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;sizes&#34;</span><span class="p">:</span> <span class="s2">&#34;180x180&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;image/png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;purpose&#34;</span><span class="p">:</span> <span class="s2">&#34;any maskable&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;src&#34;</span><span class="p">:</span> <span class="s2">&#34;/android-chrome-192x192.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;sizes&#34;</span><span class="p">:</span> <span class="s2">&#34;192x192&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;image/png&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;src&#34;</span><span class="p">:</span> <span class="s2">&#34;/android-chrome-512x512.png&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;sizes&#34;</span><span class="p">:</span> <span class="s2">&#34;512x512&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;image/png&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="offline-page">Configure the offline page</h3>
+<p>The offline page will be served to your visitor when they are offline.</p>
+<p>You just need to create an <code>offline.md</code> or <code>offline/index.md</code> in the <code>/content/</code> directory, and you can create them quickly with the following commands in your site directory:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new offline.md
+</span></span><span class="line"><span class="cl">hugo new offline/index.md
+</span></span><span class="line"><span class="cl"><span class="c1"># [i18n] if you are running a multilingual website.</span>
+</span></span><span class="line"><span class="cl">hugo new offline/index.en.md
+</span></span><span class="line"><span class="cl">hugo new offline/index.zh-cn.md
+</span></span><span class="line"><span class="cl">hugo new offline/index.zh-tw.md
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition tip open">
+    <div class="details-summary admonition-title">
+      <i class="icon fas fa-lightbulb fa-fw"></i>Permalink<i class="details-icon fas fa-angle-right fa-fw"></i>
+    </div>
+    <div class="details-content">
+      <div class="admonition-content"><p>You need to make sure the <a
+  href="https://gohugo.io/content-management/urls/#permalinks"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Permalink<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a> to the offline page is <code>/offline/</code>, otherwise, you will need to modify the value of <code>OFFLINE_CACHE_FILES</code> and <code>OFFLINE_PAGE</code> in the service worker yourself.</p>
+<p>Currently, i18n is supported for the offline page, but only for English and Chinese. Of course, you can <a
+  href="https://github.com/Lruihao/FixIt/pulls"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Contribute with a new language<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a> to the theme!</p>
+</div>
+    </div>
+  </div>
+<p>Here is a sample offline page.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-md" data-lang="md"><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">type: &#34;offline&#34;
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="enable-pwa">Enable the <code>enablePWA</code> option</h3>
+<p>Go to <code>config.toml</code>, add or change the option <code>enablePWA = true</code> under <code>[params]</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c"># ...</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">enablePWA</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="install-your-pwa">Install your PWA</h2>
+<p>Now, an install button should show up when you visit your website and you will be able to install your site as an app. After clicking &ldquo;Install&rdquo;, your website should be installed as a native app.</p>
+<p><figure><a class="lightgallery" href="/en/pwa-support/install-pwa.jpg" title="Installed PWA" data-thumbnail="/en/pwa-support/install-pwa.jpg" data-sub-html="<h2>Installed PWA</h2><p>Installed PWA</p>">
+    <img
+      class="lazyload"
+      src="/svg/loading.min.svg"
+      data-src="install-pwa.jpg"
+      data-srcset="/en/pwa-support/install-pwa.jpg, install-pwa.jpg 1.5x, /en/pwa-support/install-pwa.jpg 2x"
+      data-sizes="auto"
+      alt="/en/pwa-support/install-pwa.jpg" />
+  </a><figcaption class="image-caption">Installed PWA</figcaption>
+  </figure></p>
+<p>Congratulation! You have successfully turned your static site into a PWA 🎉</p>
+<p>If you have any issues during the setup process, you can check the <code>Console</code> and <code>Application</code> panels in your browser&rsquo;s DevTools for debugging. Alternatively, you can check your site on <a
+  href="https://www.pwabuilder.com/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>PWA Builder<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a> for more information. You can also start a <a
+  href="https://github.com/Lruihao/FixIt/discussions"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>discussion<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a> if you have any questions or propose an <a
+  href="https://github.com/Lruihao/FixIt/issues"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>issue<i class="fas fa-external-link-alt fa-fw fa-xs ms-1"></i></a> for any bugs you find.</p></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-05-15&#32;23:07:03>Updated on 2022-05-15</span>
+      </div>
+      <div class="post-info-license"><span><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a
+  href="/en/pwa-support/index.md"
+  
+    title="Read Markdown"
+  
+  
+  
+  
+  
+    class="link-to-markdown"
+  
+  
+>Read Markdown</a></span><span><a
+  href="https://github.com/Lruihao/FixIt/edit/master/exampleSite/content/posts%5cpwa-support%5cindex.en.md"
+  
+    title="Edit this page"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+    class="link-to-edit"
+  
+  
+>Edit this page</a></span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://fixit.lruihao.cn/en/pwa-support/" data-title="Theme Documentation - PWA Support" data-via="xxxx" data-hashtags="PWA"><i class="fab fa-twitter fa-fw"></i></a>
+  <a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://fixit.lruihao.cn/en/pwa-support/" data-hashtag="PWA"><i class="fab fa-facebook-square fa-fw"></i></a>
+  <a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://fixit.lruihao.cn/en/pwa-support/" data-title="Theme Documentation - PWA Support"><i class="fab fa-hacker-news fa-fw"></i></a>
+  <a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="https://fixit.lruihao.cn/en/pwa-support/" data-title="Theme Documentation - PWA Support"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a>
+  <a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://fixit.lruihao.cn/en/pwa-support/" data-title="Theme Documentation - PWA Support"><i class="fab fa-weibo fa-fw"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/en/tags/pwa/">PWA</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/en/">Home</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav">
+      <a href="/en/emoji-support/" class="next" rel="next" title="Emoji Support">Emoji Support<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="giscus">
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="Lruihao/FixIt"
+            data-repo-id="R_kgDOGihPtQ"
+            data-category="General"
+            data-category-id="DIC_kwDOGihPtc4CApHX"
+            data-mapping="title"
+            
+            data-theme="preferred_color_scheme"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position=""
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async
+            defer
+          ></script>
+          <noscript>
+            Please enable JavaScript to view the comments powered by <a href="https://giscus.app/" rel="external nofollow noopener noreffer">giscus</a>.
+          </noscript>
+        </div></div></article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/Lruihao/FixIt" target="_blank" rel="external nofollow noopener noreffer" title="FixIt v0.2.14"><img class="fixit-icon" src="/images/fixit.svg" alt="FixIt logo" />&nbsp;FixIt</a>
+        </div><div class="footer-line copyright"><i class="far fa-copyright fa-fw"></i>
+            <span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://lruihao.cn"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+  
+>Lruihao</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='Website running ...'><i class="fas fa-heartbeat fa-fw animate-icon"></i>&nbsp;<span class="run-times">Website running ...</span></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title='Total visitors'><i class="far fa-user fa-fw"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin fa-fw"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='Total visits'><i class="far fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin fa-fw"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets">
+  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+      <i class="fas fa-arrow-up fa-fw"></i>
+    </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+      <i class="fas fa-comment fa-fw"></i>
+    </a>
+  </div><a
+  href="https://github.com/Lruihao/FixIt"
+  
+    title="View source on GitHub"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreffer"
+  
+  
+  
+    class="github-corner right d-none-mobile"
+  
+  
+><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","editLockTitle":"Lock editable code block","editUnLockTitle":"Unlock editable code block","editable":true,"maxShownLines":10},"comment":{"giscus":{"darkTheme":"dark_dimmed","lightTheme":"light"}},"cookieconsent":{"content":{"dismiss":"Got it!","link":"Learn more","message":"This website uses Cookies to improve your experience."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"search":{"algoliaAppID":"YKOM6PKLUY","algoliaIndex":"index.en","algoliaSearchKey":"a44c110d3ac360be2c69cd79d34b77a8","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"algolia"},"siteTime":"2021-12-18T16:15:22+08:00","watermark":{"appendto":".wrapper\u003emain","colspacing":30,"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt Theme","enable":true,"fontfamily":"inherit","fontsize":0.85,"height":21,"opacity":0.0125,"rotate":15,"rowspacing":60,"width":150}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>

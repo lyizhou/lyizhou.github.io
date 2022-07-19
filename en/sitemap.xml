@@ -2,7 +2,25 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>https://lyizhou.github.io/en/categories/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+      <loc>https://lyizhou.github.io/en/about/</loc><lastmod>2022-07-19T08:49:51&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            rel="alternate"
+            hreflang="zh-cn"
+            href="https://lyizhou.github.io/about/"
+            /><xhtml:link
+          rel="alternate"
+          hreflang="en"
+          href="https://lyizhou.github.io/en/about/"
+          /></url><url>
+      <loc>https://lyizhou.github.io/en/offline/</loc><lastmod>2022-07-18T22:16:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            rel="alternate"
+            hreflang="zh-cn"
+            href="https://lyizhou.github.io/offline/"
+            /><xhtml:link
+          rel="alternate"
+          hreflang="en"
+          href="https://lyizhou.github.io/en/offline/"
+          /></url><url>
+      <loc>https://lyizhou.github.io/en/categories/</loc><lastmod>2022-07-18T22:16:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
             rel="alternate"
             hreflang="zh-cn"
             href="https://lyizhou.github.io/categories/"
@@ -10,6 +28,24 @@
           rel="alternate"
           hreflang="en"
           href="https://lyizhou.github.io/en/categories/"
+          /></url><url>
+      <loc>https://lyizhou.github.io/en/categories/documentation/</loc><lastmod>2022-07-18T22:16:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            rel="alternate"
+            hreflang="zh-cn"
+            href="https://lyizhou.github.io/categories/documentation/"
+            /><xhtml:link
+          rel="alternate"
+          hreflang="en"
+          href="https://lyizhou.github.io/en/categories/documentation/"
+          /></url><url>
+      <loc>https://lyizhou.github.io/en/friends/</loc><lastmod>2022-07-18T22:16:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            rel="alternate"
+            hreflang="zh-cn"
+            href="https://lyizhou.github.io/friends/"
+            /><xhtml:link
+          rel="alternate"
+          hreflang="en"
+          href="https://lyizhou.github.io/en/friends/"
           /></url><url>
       <loc>https://lyizhou.github.io/en/tags/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
             rel="alternate"
@@ -20,7 +56,7 @@
           hreflang="en"
           href="https://lyizhou.github.io/en/tags/"
           /></url><url>
-      <loc>https://lyizhou.github.io/en/</loc><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+      <loc>https://lyizhou.github.io/en/</loc><lastmod>2022-07-18T22:16:49&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
             rel="alternate"
             hreflang="zh-cn"
             href="https://lyizhou.github.io/"

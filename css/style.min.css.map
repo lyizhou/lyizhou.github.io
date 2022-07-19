@@ -5,7 +5,7 @@
 	"sources": [
 		"themes/FixIt/assets/css/style.scss",
 		"themes/FixIt/assets/css/_variables.scss",
-		"themes/FixIt/assets/css/_override.scss",
+		"assets/css/_override.scss",
 		"themes/FixIt/assets/css/_mixin/_index.scss",
 		"themes/FixIt/assets/css/_mixin/_compatibility.scss",
 		"themes/FixIt/assets/css/_mixin/_link.scss",
@@ -50,7 +50,7 @@
 		"themes/FixIt/assets/css/_partial/_pagination.scss",
 		"themes/FixIt/assets/css/_core/_media.scss",
 		"themes/FixIt/assets/css/_common.scss",
-		"themes/FixIt/assets/css/_custom.scss"
+		"assets/css/_custom.scss"
 	],
 	"sourcesContent": [
 		"@charset \"utf-8\";\r\n\r\n@import \"_variables\";\r\n@import \"_override\";\r\n\r\n@import \"_mixin/index\";\r\n\r\n@import \"_root\";\r\n@import \"_core/base\";\r\n@import \"_core/layout\";\r\n\r\n@import \"_page/index\";\r\n\r\n@import \"_partial/header\";\r\n@import \"_partial/footer\";\r\n@import \"_partial/pagination\";\r\n\r\n@import \"_core/media\";\r\n\r\n@import \"_common\";\r\n@import \"_custom\";\r\n",

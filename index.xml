@@ -7,6 +7,13 @@
       <webMaster>liuyizh@foxmail.com (之航)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 10 Jul 2022 00:01:26 &#43;0800</lastBuildDate>
       <atom:link href="https://lyizhou.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>过渡态的计算</title>
+  <link>https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/</link>
+  <pubDate>Sun, 10 Jul 2022 00:01:26 &#43;0800</pubDate>
+  <author>之航</author>
+  <guid>https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/</guid>
+  <description><![CDATA[原理 Arrhenius Equation 反应速率对于温度的依赖性，计算化学反应速率和活化能 $$ k(T)=Ae^{-\frac{E_a}{RT}} \to E_a = - \frac{\partial \ln k(T)}{\partial (\frac{1}{RT})}=constant $$ Eyring Equation 化学反应速率随反应混合物温度变化的方程，用于过渡态理论 $$]]></description>
+</item><item>
   <title>密度泛函理论</title>
   <link>https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/</link>
   <pubDate>Sun, 10 Jul 2022 00:01:26 &#43;0800</pubDate>

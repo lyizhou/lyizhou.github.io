@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>过渡态的计算 - Yiou&#39;s Blog - Learn Something</title><meta name="author" content="之航">
+<meta name="author-link" content="https://lyizhou.github.io/">
+<meta name="description" content="锂离子在石墨表面迁移过渡态的计算" /><meta name="keywords" content='DFT' /><meta itemprop="name" content="过渡态的计算">
+<meta itemprop="description" content="锂离子在石墨表面迁移过渡态的计算"><meta itemprop="datePublished" content="2022-07-10T00:01:26+08:00" />
+<meta itemprop="dateModified" content="2022-07-22T11:09:16+08:00" />
+<meta itemprop="wordCount" content="1652"><meta itemprop="image" content="https://lyizhou.github.io/logo.png"/>
+<meta itemprop="keywords" content="DFT," /><meta property="og:title" content="过渡态的计算" />
+<meta property="og:description" content="锂离子在石墨表面迁移过渡态的计算" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/" /><meta property="og:image" content="https://lyizhou.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-10T00:01:26+08:00" />
+<meta property="article:modified_time" content="2022-07-22T11:09:16+08:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://lyizhou.github.io/logo.png"/>
+
+<meta name="twitter:title" content="过渡态的计算"/>
+<meta name="twitter:description" content="锂离子在石墨表面迁移过渡态的计算"/>
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff"><meta name="theme-color" media="(prefers-color-scheme: dark)" content="#252627"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/" /><link rel="prev" href="https://lyizhou.github.io/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "过渡态的计算",
+    "inLanguage": "zh-CN",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/lyizhou.github.io\/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97\/"
+    },"image": [{
+              "@type": "ImageObject",
+              "url": "https:\/\/lyizhou.github.io\/images\/Apple-Devices-Preview.png",
+              "width":  2880 ,
+              "height":  1578 
+            }],"genre": "posts","keywords": "DFT","wordcount":  1652 ,
+    "url": "https:\/\/lyizhou.github.io\/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97\/","datePublished": "2022-07-10T00:01:26+08:00","dateModified": "2022-07-22T11:09:16+08:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+      "@type": "Organization",
+      "name": "Lruihao","logo": {
+          "@type": "ImageObject",
+          "url": "https:\/\/lyizhou.github.io\/images\/avatar.png",
+          "width":  528 ,
+          "height":  560 
+        }},"author": {
+        "@type": "Person",
+        "name": "之航"
+      },"description": "锂离子在石墨表面迁移过渡态的计算"
+  }
+  </script></head>
+  <body header-desktop="sticky" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script><div class="wrapper"><header class="desktop" id="header-desktop">
+  <div class="header-wrapper" github-corner="right">
+    <div class="header-title">
+      <a href="/" title="Yiou&#39;s Blog - Learn Something"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/fixit.svg"
+    data-srcset="/images/fixit.svg, /images/fixit.svg 1.5x, /images/fixit.svg 2x"
+    data-sizes="auto"
+    alt="Yiou&#39;s Blog - Learn Something"
+    title="Yiou&#39;s Blog - Learn Something" /><span class="header-title-text">Yiou&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+    <nav>
+      <ul class="menu"><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class='fa-solid fa-archive fa-fw fa-sm'></i> 所有文章</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class='fa-solid fa-th fa-fw fa-sm'></i> 分类</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class='fa-solid fa-tags fa-fw fa-sm'></i> 标签</a></li><li
+              class="menu-item"
+              has-children
+            >
+              <a
+                class="menu-link"
+                href="/categories/documentation/"
+                title="主题文档"
+                
+              ><i class='fa-solid fa-book fa-fw fa-sm'></i> 文档</a><i class="dropdown-icon fa-solid fa-chevron-down"></i>
+                <ul class="sub-menu">
+                  <li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/"
+                        title="密度泛函理论基本知识"
+                        
+                      ><i class='fa-brands fa-readme fa-fw fa-sm'></i> 密度泛函理论</a>
+                    </li></ul></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/friends/"
+                title="友情链接"
+                
+              ><i class='fa-solid fa-users fa-fw fa-sm'></i> 友链</a></li><li
+              class="menu-item"
+              
+            >
+              <a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class='fa-solid fa-info-circle fa-fw fa-sm'></i> 关于</a></li><li
+              class="menu-item d-none-desktop text-center"
+              
+            >
+              <a
+                class="menu-link"
+                href="https://github.com/lyizhou"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fa-brands fa-github fa-fw'></i> </a></li><li class="menu-item delimiter"></li><li class="menu-item language">
+            <span title="选择语言">简体中文<i class="dropdown-icon fa-solid fa-chevron-down"></i>
+            </span>
+            <ul class="sub-menu"><li class="menu-item">没有更多翻译</li></ul>
+          </li><li class="menu-item search" id="search-desktop">
+            <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-desktop">
+            <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+              <i class="fa-solid fa-search fa-fw"></i>
+            </a>
+            <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+              <i class="fa-solid fa-times-circle fa-fw"></i>
+            </a>
+            <span class="search-button search-loading" id="search-loading-desktop">
+              <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+            </span>
+          </li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header><header class="mobile" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Yiou&#39;s Blog - Learn Something"><img
+    class="lazyload logo"
+    src="/svg/loading.min.svg"
+    data-src="/images/fixit.svg"
+    data-srcset="/images/fixit.svg, /images/fixit.svg 1.5x, /images/fixit.svg 2x"
+    data-sizes="auto"
+    alt="/images/fixit.svg"
+    title="/images/fixit.svg" /><span class="header-title-text">Yiou&#39;s Blog</span></a><span class="header-subtitle"></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="search-wrapper">
+            <div class="search mobile" id="search-mobile">
+              <input type="text" placeholder="搜索文章标题或内容 ..." id="search-input-mobile">
+              <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                <i class="fa-solid fa-search fa-fw"></i>
+              </a>
+              <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                <i class="fa-solid fa-times-circle fa-fw"></i>
+              </a>
+              <span class="search-button search-loading" id="search-loading-mobile">
+                <i class="fa-solid fa-spinner fa-fw fa-spin"></i>
+              </span>
+            </div>
+            <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+              取消
+            </a>
+          </li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/posts/"
+                
+                
+              ><i class='fa-solid fa-archive fa-fw fa-sm'></i> 所有文章</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/categories/"
+                
+                
+              ><i class='fa-solid fa-th fa-fw fa-sm'></i> 分类</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/tags/"
+                
+                
+              ><i class='fa-solid fa-tags fa-fw fa-sm'></i> 标签</a></li><li
+              class="menu-item"
+            ><span class="nested-item">
+                  <a
+                    class="menu-link"
+                    href="/categories/documentation/"
+                    title="主题文档"
+                    
+                  ><i class='fa-solid fa-book fa-fw fa-sm'></i> 文档</a>
+                  <i class="dropdown-icon fa-solid fa-chevron-right"></i>
+                </span>
+                <ul class="sub-menu">
+                  <li
+                      class="menu-item"
+                    >
+                      <a
+                        class="menu-link"
+                        href="/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/"
+                        title="密度泛函理论基本知识"
+                        
+                      ><i class='fa-brands fa-readme fa-fw fa-sm'></i> 密度泛函理论</a>
+                    </li></ul></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/friends/"
+                title="友情链接"
+                
+              ><i class='fa-solid fa-users fa-fw fa-sm'></i> 友链</a></li><li
+              class="menu-item"
+            ><a
+                class="menu-link"
+                href="/about/"
+                
+                
+              ><i class='fa-solid fa-info-circle fa-fw fa-sm'></i> 关于</a></li><li
+              class="menu-item d-none-desktop text-center"
+            ><a
+                class="menu-link"
+                href="https://github.com/lyizhou"
+                title="GitHub"
+                rel="noopener noreferrer" target="_blank"
+              ><i class='fa-brands fa-github fa-fw'></i> </a></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw"></i>
+        </li><li class="menu-item language">
+            <span title="选择语言">简体中文<i class="dropdown-icon fa-solid fa-chevron-down"></i>
+            </span>
+            <select class="language-select" onchange="location = this.value;"><option disabled>没有更多翻译</option></select>
+          </li></ul>
+    </nav>
+  </div>
+</header>
+<div class="search-dropdown desktop">
+  <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+  <div id="search-dropdown-mobile"></div>
+</div>
+<main class="container" page-style="normal"><aside class="toc" id="toc-auto"><h2 class="toc-title">目录 <i class="toc-icon fa-solid fa-angle-down fa-fw"></i></h2>
+      <div class="toc-content always-active" id="toc-content-auto"></div></aside>
+
+  <aside class="aside-custom">
+    
+  </aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX">
+        <span>过渡态的计算</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><a
+  href="https://lyizhou.github.io/"
+  
+    title="作者"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer author"
+  
+  
+    class="author"
+  
+  
+><img
+    class="lazyload avatar"
+    src="/svg/loading.min.svg"
+    data-src="https://gravatar.loli.net/avatar/538131cd2a0820dd1371bf579ae3fc1f?s=32&amp;d=mp"
+    data-srcset="https://gravatar.loli.net/avatar/538131cd2a0820dd1371bf579ae3fc1f?s=32&amp;d=mp, https://gravatar.loli.net/avatar/538131cd2a0820dd1371bf579ae3fc1f?s=32&amp;d=mp 1.5x, https://gravatar.loli.net/avatar/538131cd2a0820dd1371bf579ae3fc1f?s=32&amp;d=mp 2x"
+    data-sizes="auto"
+    alt="之航"
+    title="之航" />&nbsp;之航</a></span>
+          <span class="post-category">收录于 <a href="/categories/vasp/"><i class="fa-regular fa-folder fa-fw"></i>&nbsp;VASP</a></span></div>
+      <div class="post-meta-line"><span title=2022-07-10&#32;00:01:26>
+            <i class="fa-regular fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-07-10" >2022-07-10</time>
+          </span>&nbsp;<i class="fa-solid fa-pencil-alt fa-fw"></i>&nbsp;约 1652 字&nbsp;
+        <i class="fa-regular fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="过渡态的计算">
+            <i class="fa-regular fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
+          </span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#原理">原理</a></li>
+    <li><a href="#ci-neb过渡态计算">CI-NEB过渡态计算</a></li>
+    <li><a href="#参考文章">参考文章</a></li>
+  </ul>
+</nav></div>
+      </div><div
+      class="content"
+      id="content"
+      
+      
+    ><h2 id="原理">原理</h2>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712102108.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712102108.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712102108.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712102108.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712102108.png"
+    title="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712102108.png" /></p>
+<blockquote>
+<p>Arrhenius Equation 反应速率对于温度的依赖性，计算化学反应速率和活化能
+$$
+k(T)=Ae^{-\frac{E_a}{RT}} \to E_a = - \frac{\partial \ln k(T)}{\partial (\frac{1}{RT})}=constant
+$$</p>
+</blockquote>
+<blockquote>
+<p>Eyring Equation 化学反应速率随反应混合物温度变化的方程，用于过渡态理论
+$$
+k = \frac{kk_BT}{h}e \frac{\Delta G_+^+}{RT}
+$$</p>
+</blockquote>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712104206.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712104206.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712104206.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712104206.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712104206.png"
+    title="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220712104206.png" /></p>
+<center>Arrhenius 和 Eyring 方程的区别</center>
+<p><strong>过渡态的定义：</strong>
+过渡态是指势能面反应路径上的能量最高点，它通过最小能量路径(minimum energy path,MEP)连接着反应物和产物的结构</p>
+<p><strong>过渡态只有一个虚频：</strong>
+在势能面上，过渡态结构的能量对坐标的一阶导数为0，只有在反应坐标方向上曲率（对坐标二阶导数）为负，而其它方向上皆为正，是能量面上的一阶鞍点。过渡态结构的能量二阶导数矩阵（Hessian矩阵）的本征值仅有一个负值，这个负值也就是过渡态拥有唯一虚频的来源。若将分子振动简化成谐振子模型，这个负值便是频率公式中的力常数，开根号后即得虚数。</p>
+<p><strong>过渡态搜索算法 CI-NEB方法：</strong>
+NEB与String等方法都可以结合Climbing Image方法，它专门考虑到了定位过渡态问题。CI-NEB与NEB的关键区别是能量最高的点受力的定义，在CI-NEB中这个点不会受到相邻点的弹簧力，避免位置被拉离过渡态，而且将此点平行于路径方向的势能力分量的符号反转，促使此点沿着路径往能量升高的方向上爬到过渡态。这个方法只需要很少的点，比如包含初、末态总共5个甚至3个点就能准确定位过渡态，是最有效率的寻找过渡态的方法之一。如果还需要精确描述MEP，可以在此过渡态上使用Stepwise descent方法、最陡下降法、RK4等方法沿势能面下坡走出MEP，整个过程比直接使用很多点的NEB方法能在更短时间内得到更准确的MEP。</p>
+<h2 id="ci-neb过渡态计算">CI-NEB过渡态计算</h2>
+<p><strong>锂离子在石墨上的迁移路径</strong></p>
+<ol>
+<li>优化初态和末态。</li>
+</ol>
+<center class="half">
+    <img src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220710174037.png" width=360>
+    <img src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220710174118.png" width=360>
+</center>
+<ol start="2">
+<li>
+<p>用dist.pl检查两个优化后的结构(两个CONTCAR)的相似程度。在执行前给可执行文件权限<code>chmod +x dist.pl</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dist.pl ini/CONTCAR fin/CONTCAR
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203021.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203021.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203021.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203021.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203021.png"
+    title="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203021.png" /></p>
+</li>
+<li>
+<p>nebmake.pl 插点
+插点数目取$\frac{dist.pl\ 返回值}{0.8}$</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nebmake.pl ini/CONTCAR fin/CONTCAR <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203131.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203131.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203131.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203131.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203131.png"
+    title="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711203131.png" /></p>
+<p>生成了<code>./00 ./01 ./02 ./03 ./04</code>五个文件夹。
+其中00表示初态，里面为ini/CONTCAR，04表示末态，放入的为fin/CONTCAR，其它为插入的点，三个文件夹里面文件名都是POSCAR。</p>
+</li>
+<li>
+<p>初末态对应的OUTCAR复制到相应的文件夹。</p>
+</li>
+<li>
+<p>检查插入点的合理性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nebmovie.pl <span class="m">0</span>   <span class="c1">#参数0表示用POSCAR生成xyz文件；1，用CONTCAR生成。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>准备INCAR</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#### initial I/O ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SYSTEM</span> <span class="o">=</span> GLi-NEB
+</span></span><span class="line"><span class="cl"><span class="nv">ISTART</span> <span class="o">=</span> <span class="m">0</span>    
+</span></span><span class="line"><span class="cl"><span class="nv">ICHARG</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">NCORE</span> <span class="o">=</span> <span class="m">4</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### Ele Relaxation ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ISPIN</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ISMEAR</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGMA</span> <span class="o">=</span> 0.01
+</span></span><span class="line"><span class="cl"><span class="nv">ENCUT</span> <span class="o">=</span> <span class="m">500</span>
+</span></span><span class="line"><span class="cl"><span class="nv">PREC</span> <span class="o">=</span> N
+</span></span><span class="line"><span class="cl"><span class="nv">ALGO</span><span class="o">=</span> V
+</span></span><span class="line"><span class="cl"><span class="nv">LREAL</span> <span class="o">=</span> .Auto.
+</span></span><span class="line"><span class="cl"><span class="nv">ISYM</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">EDIFF</span> <span class="o">=</span> 1E-5      <span class="c1"># 更精准的电子步会加速收敛</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### Geo opt ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">EDIFFG</span> <span class="o">=</span> -0.03    <span class="c1"># 过渡态可以适当放宽结构优化的收敛精度到-0.03</span>
+</span></span><span class="line"><span class="cl"><span class="nv">POTIM</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IBRION</span> <span class="o">=</span> <span class="m">3</span>        <span class="c1"># IBRION = 3, POTIM = 0, VTST识别并启动VTST优化算法</span>
+</span></span><span class="line"><span class="cl"><span class="nv">NSW</span> <span class="o">=</span> <span class="m">300</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ISIF</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### VTST ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IOPT</span> <span class="o">=</span> <span class="m">1</span>          <span class="c1"># 优化算法 IOPT = 1, 2(适合精收敛) IOPT = 7(适合粗收敛)</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ICHAIN</span> <span class="o">=</span> <span class="m">0</span>        <span class="c1"># 开启NEB方法</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LCLIMB</span> <span class="o">=</span> .T.      <span class="c1"># CI-NEB</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IMAGES</span> <span class="o">=</span> <span class="m">3</span>        <span class="c1"># 插入的点个数</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SPRING</span> <span class="o">=</span>-5        <span class="c1"># 弹簧力常数，默认值-5   </span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### DFT-D ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span> <span class="o">=</span> <span class="m">11</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>准备POTCAR和KPOINTS</p>
+<p>同结构优化一致</p>
+</li>
+<li>
+<p>提交任务</p>
+<p>核的个数必须整除插点的数量</p>
+</li>
+<li>
+<p>跟踪检查收敛结果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nebmovie.pl <span class="m">1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202823.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202823.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202823.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202823.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202823.png"
+    title="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202823.png" /></p>
+</li>
+<li>
+<p>频率计算验证虚频</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#### inital I/O ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SYSTEM</span> <span class="o">=</span> Gli-NEB-Freq
+</span></span><span class="line"><span class="cl"><span class="nv">ISTART</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ICHARG</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">NCORE</span> <span class="o">=</span> <span class="m">4</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### Ele Relaxation ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ISPIN</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ENCUT</span> <span class="o">=</span> <span class="m">500</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ISMEAR</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">SIGMA</span> <span class="o">=</span> 0.01
+</span></span><span class="line"><span class="cl"><span class="nv">PREC</span> <span class="o">=</span> A
+</span></span><span class="line"><span class="cl"><span class="nv">ALGO</span> <span class="o">=</span> N
+</span></span><span class="line"><span class="cl"><span class="nv">EDIFF</span> <span class="o">=</span> 1E-5
+</span></span><span class="line"><span class="cl"><span class="nv">ISYM</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LREAL</span> <span class="o">=</span> .FALSE.
+</span></span><span class="line"><span class="cl"><span class="nv">NFREE</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LPLANE</span> <span class="o">=</span> .TRUE.
+</span></span><span class="line"><span class="cl"><span class="c1">#### Geo opt ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">EDIFFG</span> <span class="o">=</span> -0.01
+</span></span><span class="line"><span class="cl"><span class="nv">POTIM</span> <span class="o">=</span> 0.015
+</span></span><span class="line"><span class="cl"><span class="nv">IBRION</span> <span class="o">=</span> <span class="m">5</span>
+</span></span><span class="line"><span class="cl"><span class="nv">NSW</span> <span class="o">=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ISIF</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### DFT-D ####</span>
+</span></span><span class="line"><span class="cl"><span class="nv">IVDW</span> <span class="o">=</span> <span class="m">11</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>nebresults.pl总结结果
+通过执行一系列的脚本，来总结neb结果</p>
+<center class="half">
+<img src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202535.png" width=310>
+<img src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/mep.png" width=400>
+<p>距离和能量势垒图</p>
+</center class="half">
+nebresults.pl会把所有OUTCAR都打包成.gz的文件，如果不想打包可以用如下命令解压。
+`gunzip 0*/OUTCAR.gz`
+</li>
+<li>
+<p>查看虚频 <code>grep THz OUTCAR</code> 查看频率，f/i为虚频</p>
+<p><img
+    class="lazyload"
+    src="/svg/loading.min.svg"
+    data-src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202337.png"
+    data-srcset="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202337.png, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202337.png 1.5x, https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202337.png 2x"
+    data-sizes="auto"
+    alt="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202337.png"
+    title="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/20220711202337.png" /></p>
+<p>下载OUTCAR，用Jmol打开，工具-震动-开始振动，跳转到最后一个频率，左箭头跳转到倒数第二个频率</p>
+<img src="https://pic-1302704451.cos.ap-nanjing.myqcloud.com/OUTCAR.png" width=700>
+</li>
+<li>
+<p>沿着不想要的虚频方向调整过渡态结构，重新执行过渡态计算，即把结构向着较小的那个虚频的方向做微小的位移重新作为初始结构计算</p>
+</li>
+</ol>
+<h2 id="参考文章">参考文章</h2>
+<ol>
+<li><a
+  href="https://www.differencebetween.com/difference-between-arrhenius-and-eyring-equation/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>Difference Between Arrhenius and Eyring Equation<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a></li>
+<li><a
+  href="http://sobereva.com/44"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>过渡态、反应路径的计算方法及相关问题<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a></li>
+<li><a
+  href="http://blog.wangruixing.cn/2019/08/19/cineb/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>vasp-vtst计算过渡态&ndash;NEB方法<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a></li>
+<li><a
+  href="https://zhuanlan.zhihu.com/p/375723525"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>vasp-vtst计算过渡态(NEB方法)具体过程<i class="fa-solid fa-external-link-alt fa-fw fa-xs ms-1"></i></a></li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title=2022-07-22&#32;11:09:16>更新于 2022-07-22</span>
+      </div>
+      <div class="post-info-license "><span><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+    <div class="post-info-line">
+      <div class="post-info-md"><span><a
+  href="/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/index.md"
+  
+    title="阅读原始文档"
+  
+  
+  
+  
+    class="link-to-markdown"
+  
+  
+>阅读原始文档</a></span><span><a
+  href="https:/github.com/Lruihao/FixIt/edit/master/exampleSite/content/posts/%e8%bf%87%e6%b8%a1%e6%80%81%e7%9a%84%e8%ae%a1%e7%ae%97.md"
+  
+    title="编辑此页"
+  
+  
+  
+  
+    class="link-to-edit"
+  
+  
+>编辑此页</a></span></div>
+      <div class="post-info-share">
+        <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/" data-title="过渡态的计算" data-hashtags="DFT"><i class="fa-brands fa-twitter fa-fw"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/" data-hashtag="DFT"><i class="fa-brands fa-facebook-square fa-fw"></i></a>
+  <a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/" data-title="过渡态的计算"><i class="fa-brands fa-hacker-news fa-fw"></i></a>
+  <a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/" data-title="过渡态的计算"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://lyizhou.github.io/%E8%BF%87%E6%B8%A1%E6%80%81%E7%9A%84%E8%AE%A1%E7%AE%97/" data-title="过渡态的计算" data-ralateuid="xxxx"><i class="fa-brands fa-weibo fa-fw"></i></a>
+  </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw"></i>&nbsp;<a href="/tags/dft/">DFT</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div>
+
+  <div class="post-nav"><a href="/%E5%AF%86%E5%BA%A6%E6%B3%9B%E5%87%BD%E7%90%86%E8%AE%BA/" class="prev" rel="prev" title="密度泛函理论"><i class="fa-solid fa-angle-left fa-fw"></i>密度泛函理论</a></div>
+</div>
+</article></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line copyright"><i class="fa-regular fa-copyright fa-fw"></i>
+            <span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">
+              <a
+  href="https://lyizhou.github.io/"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+  
+>之航</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中 ...'><i class="fa-solid fa-heartbeat fa-fw animate-icon"></i>&nbsp;<span class="run-times">网站运行中 ...</span></span></div><div class="footer-line ibruce">
+          <span id="busuanzi_container_site_uv" title='总访客数'><i class="fa-regular fa-user fa-fw"></i>&nbsp;<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin fa-fw"></i></span></span><span id="busuanzi_container_site_pv" class="footer-divider" title='总访问量'><i class="fa-regular fa-eye fa-fw"></i>&nbsp;<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin fa-fw"></i></span></span>
+        </div></div>
+  </footer></div><div class="widgets">
+  <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+      <i class="fa-solid fa-arrow-up fa-fw"></i>
+    </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+      <i class="fa-solid fa-comment fa-fw"></i>
+    </a>
+  </div><a
+  href="https://github.com/lyizhou"
+  
+    title="在 GitHub 上查看源代码"
+  
+  
+    
+    
+    target="_blank"
+  
+  
+    rel="external nofollow noopener noreferrer"
+  
+  
+    class="github-corner right d-none-mobile"
+  
+  
+><svg viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><div id="mask"></div>
+</div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js" defer></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js" defer></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js" async defer></script><script type="text/javascript" src="/lib/sharer/sharer.min.js" async defer></script><script type="text/javascript" src="/lib/katex/katex.min.js" defer></script><script type="text/javascript" src="/lib/katex/auto-render.min.js" defer></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js" defer></script><script type="text/javascript" src="/lib/katex/mhchem.min.js" defer></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script type="text/javascript" src="/lib/pangu/pangu.min.js" defer></script><script type="text/javascript" src="/lib/cell-watermark/watermark.min.js" defer></script><script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async defer></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"enablePWA":true,"enablePangu":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"YKOM6PKLUY","algoliaIndex":"index.zh-cn","algoliaSearchKey":"a44c110d3ac360be2c69cd79d34b77a8","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"},"siteTime":"2022-7-18T16:15:22+08:00","watermark":{"content":"\u003cimg class=\"fixit-icon\" src=\"/images/fixit.svg\" alt=\"FixIt logo\" /\u003e FixIt 主题","enable":true,"height":21,"opacity":0.0125}};</script><script type="text/javascript" src="/js/theme.min.js" defer></script><script type="text/javascript" src="/js/_custom.min.js" defer></script></body>
+</html>

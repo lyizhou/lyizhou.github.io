@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>博客搭建 on Yiouliu</title>
+    <link>https://example.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+    <description>Recent content in 博客搭建 on Yiouliu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Jul 2022 00:01:04 +0800</lastBuildDate><atom:link href="https://example.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo个人博客搭建</title>
+      <link>https://example.com/hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Sun, 10 Jul 2022 00:01:04 +0800</pubDate>
+      
+      <guid>https://example.com/hugo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
+      <description>创建Github库 打开Github，新建库 项目名与Github用户名保持一致，例如我的用户名为lyizhou，项目名为lyizhou.github.io，勾选Readme。 安装Hugo和Git 下载Windows版本的Hugo进行安装 解压后，添加环境变量，例如 D:\hugo_0.101.0_Windows-64bit 打开命令行， 输入hugo version，检查是否安装成功 新建Hugo网站 新建目录用于存放Hugo网站的文件 打开命令行，切换到该目录，执行命令新建一个Hugo网站 hugo new site blog Hugo主题 打开hugo theme的网站，选择主题，在这里选择hugo-theme-even 下载主题文件到本地 # 进入网站blog目录 cd blog # 进入themes目录 cd themes # 下载主题文件到hugo-theme-even目录下 git clone https://github.com/olOwOlo/hugo-theme-even.git hugo-theme-even 在Hugo根目录下配置config.toml 在blog目录下备份原来的config.toml文件，然后将D:\hugo_0.101.0_Windows-64bit\myblog\themes\even复制病覆盖原来的文件，修改配置。 新建文章 进入blog目录下，选择 Git Bash Here 新建文章 hugo new post/test.md 编辑文章内容并保存 启动Hugo server hugo server -D 打开 http://localhost:1313/可以进行预览 部署 构建Hugo网站 在Hugo网站blog目录下执行hugo命令构建 Hugo会将构建的的网站内容默认保存在根目录下的public/文件下
+将网站与Github建立联系
+进入public目录下，初始化Git库 git init 将git本地库关联至远程库 git remote add origin git@github.com:lyizhou/lyizhou.github.io.git 提交修改 在public目录下，通过一下命令提交</description>
+    </item>
+    
+  </channel>
+</rss>
